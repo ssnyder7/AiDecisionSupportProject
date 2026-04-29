@@ -9,7 +9,7 @@ model = SentenceTransformer('all-MiniLM-L6-v2')
 
 @st.cache_data
 def load_data():
-    return pd.read_csv("TitleToAppID.csv")
+    return pd.read_csv("TitleToAppID.csv", encoding='latin1', on_bad_lines='skip')
 
 df = load_data()
 
