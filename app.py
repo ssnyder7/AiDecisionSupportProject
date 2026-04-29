@@ -74,7 +74,7 @@ if game_input:
             st.markdown(f"""
                 <div style="background-color:#1e1e1e; padding:20px; border-radius:10px; border-left: 10px solid {color_hex};">
                     <h3 style="margin:0;">Marketing Alignment Score: <span style="color:{color_hex};">{info['match']:.2f}%</span></h3>
-                    <p style="color:#888; font-size:0.9em;">This score represents how closely the Steam store description matches actual player feedback using semantic similarity.</p>
+                    <p style="color:#888; font-size:0.9em;">This score represents how closely the Steam store description matches actual player feedback using semantic similarity (Scores range from 0%-50%).</p>
                 </div>
             """, unsafe_allow_html=True)
         else:
