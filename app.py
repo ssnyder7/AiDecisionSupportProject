@@ -9,10 +9,7 @@ model = SentenceTransformer('all-MiniLM-L6-v2')
 
 @st.cache_data
 def load_data():
-    df = pd.read_csv("TitleToAppID.csv", encoding='latin1', on_bad_lines='skip', engine='python')
-    # 1. Remove invisible spaces from column headers
-    df.columns = df.columns.str.strip()
-    return df
+    return pd.read_excel("TitleToAppID.csv", engine='openpyxl')
 
 df = load_data()
 
