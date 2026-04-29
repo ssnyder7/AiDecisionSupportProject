@@ -3,7 +3,7 @@ import pandas as pd
 import steamreviews
 from sentence_transformers import SentenceTransformer, util
 
-# --- APP CONFIG & MODELS ---
+# APP CONFIG & MODELS
 st.set_page_config(page_title="Steam Review Analyzer", page_icon="🎮")
 model = SentenceTransformer('all-MiniLM-L6-v2')
 
@@ -13,7 +13,7 @@ def load_data():
 
 df = load_data()
 
-# --- ANALYSIS ENGINE ---
+# ANALYSIS ENGINE
 def get_game_data(clean_desc, app_id):
     # Fetch reviews
     steam_review_set, _ = steamreviews.download_reviews_for_app_id(
@@ -40,7 +40,7 @@ def get_game_data(clean_desc, app_id):
         "match": match_score
     }
 
-# --- UI LAYOUT ---
+# UI LAYOUT
 st.title("🎮 Steam Marketing vs. Reality")
 game_input = st.text_input("Enter a game name:", placeholder="e.g. Sonic Mania (Warning: popular games may take quite a long time)")
 
@@ -55,7 +55,7 @@ if game_input:
             info = get_game_data(game['GameDescription'], game['app_id'])
         
         if info:
-            # 1. Calculate color: 0 is dark red (139,0,0), 50+ is bright green (0,255,0)
+            # Calculate color: 0 is dark red (139,0,0), 50+ is bright green (0,255,0)
             # We'll clamp the match score to 50 for the max green intensity
             score_clamped = min(max(info['match'], 0), 50)
             ratio = score_clamped / 50
@@ -65,7 +65,7 @@ if game_input:
             b = 0
             color_hex = f'#{r:02x}{g:02x}{b:02x}'
 
-            # 2. Display Metrics
+            # Display Metrics
             col1, col2, col3 = st.columns(3)
             col1.metric("Community Rating", info['score_desc'])
             col2.metric("Positive Reviews", f"{info['pos_pct']:.1f}%")
