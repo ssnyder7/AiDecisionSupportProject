@@ -2,3 +2,4 @@ streamlit
 pandas
 steamreviews
 sentence-transformers
+openpyxl
