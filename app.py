@@ -13,8 +13,6 @@ def load_data():
 
 df = load_data()
 
-st.write("Columns found in file:", df.columns.tolist())
-
 # --- ANALYSIS ENGINE ---
 def get_game_data(clean_desc, app_id):
     # Fetch reviews
